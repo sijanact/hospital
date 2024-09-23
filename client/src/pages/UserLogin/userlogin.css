@@ -1,12 +1,23 @@
+.main {
+  background-image: url('../../../public/bg 2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+}
+
 .user-login-form {
   width: 430px;
-  margin: 150px auto;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
   box-shadow: 0px 0px 5px 1px rgb(232, 228, 228);
   padding: 10px;
   border-radius: 5px;
+  position: absolute;
+  bottom: 200px;
+  left: 900px;
 }
 
 .btn {

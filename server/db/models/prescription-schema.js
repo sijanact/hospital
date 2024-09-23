@@ -5,11 +5,13 @@ const prescriptionSchema = mongoose.Schema({
     type: String,
   },
   userId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
   },
 
   doctorId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Doctor',
   },
   date: {
     type: Date,

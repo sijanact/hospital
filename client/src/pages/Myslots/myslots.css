@@ -1,0 +1,89 @@
+.myslotmain {
+  display: flex;
+}
+
+.myslotcard {
+  height: 230px;
+  width: 300px;
+  padding: 20px;
+  border: 1px, solid, rgba(9, 118, 227, 0.564);
+  box-shadow: 0px 0px 5px 1px rgba(9, 118, 227, 0.564);
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.myslotbtns {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.btncolor {
+  background-color: rgba(70, 147, 224, 0.564);
+}
+
+.myslot {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.myslots {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.myslotdiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 50px;
+  background-color: rgb(196, 231, 245);
+}
+.src {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: large;
+}
+
+.search {
+  display: flex;
+  gap: 20px;
+}
+.srcbtn {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+@media (max-width: 768px) {
+  .myslotcard {
+    width: 95%;
+  }
+
+  .myslotdiv {
+    padding: 20px;
+  }
+
+  .myslots {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .myslotcard {
+    padding: 15px;
+  }
+
+  .src {
+    font-size: medium;
+  }
+
+  .srcbtn {
+    width: 100%;
+  }
+}

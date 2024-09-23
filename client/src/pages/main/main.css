@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.mainlogo {
+  height: 400px;
+  width: 50%;
+  /* background-color: rgb(132, 246, 238); */
+  background-image: url(../../../public/DocQuick-logo2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.mainpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.maindet {
+  height: 300px;
+  width: 50%;
+  color: rgb(121, 105, 241);
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+.imagesize {
+  height: 50px;
+  width: 50px;
+}
+.adminlo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.doctlo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.userlo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.mains {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  background-color: rgb(132, 246, 238);
+}
+.links {
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .maindet {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mainlogo {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .imagesize {
+    height: 40px;
+    width: 40px;
+  }
+
+  .maindet {
+    gap: 5px;
+  }
+
+  .mainlogo {
+    height: 150px;
+  }
+}

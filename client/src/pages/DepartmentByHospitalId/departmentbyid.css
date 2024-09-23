@@ -1,0 +1,40 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  /* font-size: larger; */
+
+  align-items: center;
+  gap: 10px;
+}
+
+.depart {
+  display: flex;
+}
+
+.department {
+  padding: 40px;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+  background-color: rgb(196, 231, 245);
+}
+
+.depimage {
+  height: 250px;
+  width: 250px;
+}
+@media (max-width: 768px) {
+  .department {
+    gap: 30px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .depimage {
+    height: 150px;
+    width: 150px;
+  }
+}

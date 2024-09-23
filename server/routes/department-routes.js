@@ -4,7 +4,11 @@ const controller = require('../controllers/departmentControllers');
 
 const router = express.Router();
 
-router.get('/', controller.getDepartments);
-router.post('/', upload.single('image'), controller.postDepartments);
+router.get('/', controller.getDepartment);
+router.post('/', upload.single('image'), controller.postDepartment);
+router.get('/:id', controller.getDepartmentById);
+
+router.delete('/:id', controller.deleteDepartment);
+router.patch('/:id', controller.patchDepartment);
 
 module.exports = router;

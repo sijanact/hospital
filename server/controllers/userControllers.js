@@ -33,11 +33,24 @@ module.exports.loginUser = async (req, res) => {
     return res.status(403).json({ message: 'Email or password incorrect' });
   }
 
-  //   const key = 'dgflghjhdfdjgfllsdj';
-  //   const token = jwt.sign({ id: user._id, firstName: user.firstName }, key, {
-  //     expiresIn: '7d',
-  //   });
-  res.status(200).json({ message: 'You are logged' });
+  const key = 'dgflghjhdfdjgfllsdj';
+  const token = jwt.sign({ id: user._id, firstName: user.firstName }, key, {
+    expiresIn: '7d',
+  });
+  res
+    .status(200)
+    .json({ message: 'You are logged', token: token, id: user._id });
+};
+
+module.exports.getUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id);
+
+    res.status(200).json(user);
+  } catch (e) {
+    return res.status(500).json(e);
+  }
 };
 
 module.exports.forgotPassword = async (req, res) => {

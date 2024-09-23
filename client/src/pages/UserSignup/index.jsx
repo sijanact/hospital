@@ -24,7 +24,14 @@ const UserSignup = () => {
     try {
       const response = await axios.post('user/sign-up', signup);
 
-      navigate('/user/home');
+      toast('You have successfully signed up');
+      setSignup({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+      });
     } catch (e) {
       toast.error('Email or Password incorrect');
     }
@@ -35,32 +42,48 @@ const UserSignup = () => {
   };
 
   return (
-    <div className="user-signup-form">
-      <ToastContainer />
-      <h1>User Signup</h1>
-      <label>First Name</label>
-      <Input onChange={e => onChange(e, 'firstName')} />
-      <label>Last Name</label>
-      <Input onChange={e => onChange(e, 'lastName')} />
-      <label>Email</label>
-      <Input onChange={e => onChange(e, 'email')} />
-      <label>Password</label>
-      <Input type="password" onChange={e => onChange(e, 'password')} />
-      <label> Confirm Password</label>
-      <Input type="password" onChange={e => onChange(e, 'confirmPassword')} />
+    <div className="main">
+      <div className="user-signup-form">
+        <ToastContainer />
+        <h1>User Signup</h1>
+        <label>First Name</label>
+        <Input
+          value={signup.firstName}
+          onChange={e => onChange(e, 'firstName')}
+        />
+        <label>Last Name</label>
+        <Input
+          value={signup.lastName}
+          onChange={e => onChange(e, 'lastName')}
+        />
+        <label>Email</label>
+        <Input value={signup.email} onChange={e => onChange(e, 'email')} />
+        <label>Password</label>
+        <Input
+          value={signup.password}
+          type="password"
+          onChange={e => onChange(e, 'password')}
+        />
+        <label> Confirm Password</label>
+        <Input
+          value={signup.confirmPassword}
+          type="password"
+          onChange={e => onChange(e, 'confirmPassword')}
+        />
 
-      <br />
-      <div className="login">
-        <Button className="btn" onClick={onSignup}>
-          Sign up
-        </Button>
+        <br />
+        <div className="login">
+          <Button className="btn" onClick={onSignup}>
+            Sign up
+          </Button>
 
-        <p>
-          Already have an account?
-          <span onClick={onLogin} className="signup">
-            Login now
-          </span>
-        </p>
+          <p>
+            Already have an account?
+            <span onClick={onLogin} className="signup">
+              Login now
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );

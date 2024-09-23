@@ -9,8 +9,10 @@ const Sidebar = () => {
 
   const getDoctorDetails = async () => {
     const doctorID = localStorage.getItem('ID');
-
+    // console.log(doctorID);
+    // console.log('hello');
     const response = await axios.get(`doctor/${doctorID}`);
+    // console.log(response.data);
     setDoctor(response.data);
   };
 
@@ -27,11 +29,15 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="details">
+        <div className="image">
+          <img className="detimage" src={doctor.image} alt="" />
+        </div>
         <div className="content">
-          <p>{`${doctor.firstName} ${doctor.lastName}`}</p>
+          <p>{`${'Dr.'} ${doctor.firstName} ${doctor.lastName}`}</p>
+          <p>{doctor.qualification}</p>
+
           <p>{doctor.email}</p>
         </div>
-        <img src={doctor.image} alt="" />
       </div>
       <div className="contents">
         <p>
@@ -41,11 +47,21 @@ const Sidebar = () => {
         </p>
         <p>
           <NavLink className="link" to="/doctor/bookings">
-            Booking
+            Appointments
           </NavLink>
         </p>
 
-        <p>Add slot</p>
+        <p>
+          <NavLink className="link" to="/doctor/slot">
+            Add slots
+          </NavLink>
+        </p>
+
+        <p>
+          <NavLink className="link" to="/doctor/myslot">
+            My slots
+          </NavLink>
+        </p>
         <p onClick={logout}>Logout</p>
       </div>
     </div>

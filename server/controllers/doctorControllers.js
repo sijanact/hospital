@@ -49,7 +49,7 @@ module.exports.signupDoctor = async (req, res) => {
   transporter.sendMail(mailOptions, error => {
     if (error) {
       return res.status(404).json({ message: error });
-    } else return res.status(200).json({ message: 'Mail send' });
+    } else return res.status(200).json({ message: 'Mail send', response });
   });
 
   // res.status(201).json({ message: 'signed up' });
@@ -71,7 +71,14 @@ module.exports.loginDoctor = async (req, res) => {
   const token = jwt.sign({ id: doctor._id, role: 'DOCTOR' }, process.env.KEY, {
     expiresIn: '365d',
   });
-  res.status(200).json({ message: 'you are logged in', token, id: doctor._id });
+  res
+    .status(200)
+    .json({ message: 'you are logged in', token: token, id: doctor._id });
+};
+
+module.exports.getDoctor = async (req, res) => {
+  const doctor = await Doctor.find();
+  res.status(200).json(doctor);
 };
 
 module.exports.getDoctorById = async (req, res) => {
@@ -85,6 +92,46 @@ module.exports.getDoctorById = async (req, res) => {
   }
 };
 
+module.exports.getDoctorByDepartmentId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    // console.log(id);
+    const doctor = await Doctor.find({ department: id }).populate('department');
+    // console.log(doctor);
+    res.status(200).json(doctor);
+  } catch (e) {
+    return res.status(500).json(e);
+  }
+};
+
+module.exports.getDoctorByHospitalAndDepartment = async (req, res) => {
+  try {
+    const { hospitalid, departmentid } = req.params;
+
+    const doctor = await Doctor.find({
+      hospital: hospitalid,
+      department: departmentid,
+    }).populate('hospital department');
+    res.status(200).json(doctor);
+  } catch (e) {
+    return res.status(500).json(e);
+  }
+};
+
+module.exports.patchDoctor = async (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  const doctor = await Doctor.findByIdAndUpdate(id, body);
+
+  res.status(200).json({ message: 'doctor edited' });
+};
+
+module.exports.deleteDoctor = async (req, res) => {
+  const { id } = req.params;
+  const doctor = await Slot.findByIdAndDelete(id);
+  res.status(200).json({ message: 'doctor deleted' });
+};
+
 module.exports.forgotPassword = async (req, res) => {
   const { email } = req.body;
   const doctor = await Doctor.findOne({ email: email });
@@ -95,7 +142,7 @@ module.exports.forgotPassword = async (req, res) => {
   const resetToken = jwt.sign(
     { email: email },
     process.env.FORGOT_PASSWORD_KEY,
-    { expiresIn: '1h' }
+    { expiresIn: 30000 }
   );
 
   let transporter = nodemailer.createTransport({
@@ -116,7 +163,7 @@ module.exports.forgotPassword = async (req, res) => {
   transporter.sendMail(mailOptions, error => {
     if (error) {
       return res.status(404).json({ message: error });
-    } else return res.status(200).json({ message: 'Mail send' });
+    } else return res.status(200).json({ message: 'Mail send', resetToken });
   });
 };
 module.exports.resetPassword = async (req, res) => {

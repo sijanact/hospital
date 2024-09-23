@@ -23,9 +23,10 @@ const ForgotPass = () => {
       console.log(response);
 
       localStorage.setItem('token', response.data.resetToken);
+
       console.log(response.data.resetToken);
 
-      navigate(`/reset/${response.data.resetToken}`);
+      navigate(`/user/reset/${response.data.resetToken}`);
     } catch (e) {
       console.log(e);
       toast.error('Email or Password incorrect');
@@ -33,15 +34,17 @@ const ForgotPass = () => {
   };
 
   return (
-    <div className="forgot">
-      <ToastContainer />
-      <h1>Forgot Password</h1>
-      <label>Enter email address</label>
-      <Input placeholder="Email" onChange={e => onChange(e, 'email')} />
-      <div className="continue">
-        <Button className="btn" onClick={onContinue}>
-          Continue
-        </Button>
+    <div className="main">
+      <div className="forgot">
+        <ToastContainer />
+        <h1>Forgot Password</h1>
+        <label>Enter email address</label>
+        <Input placeholder="Email" onChange={e => onChange(e, 'email')} />
+        <div className="continue">
+          <Button className="btn" onClick={onContinue}>
+            Continue
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -20,6 +20,15 @@ const doctorSchema = mongoose.Schema(
     password: {
       type: String,
     },
+
+    qualification: {
+      type: String,
+    },
+
+    position: {
+      type: String,
+    },
+
     department: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Department',

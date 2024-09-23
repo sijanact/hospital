@@ -1,0 +1,57 @@
+.user-home {
+  display: flex;
+}
+
+.contentstable {
+  width: 80%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  background-color: rgb(196, 231, 245);
+}
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.appointments-table th,
+.appointments-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.appointments-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.appointments-table td {
+  text-align: left;
+}
+
+.appointments-table tr:nth-child(even) {
+  background-color: #f6f2f2;
+}
+.appointments-table tr:nth-child(odd) {
+  background-color: #f1eeee;
+}
+@media (max-width: 768px) {
+  .contentstable {
+    padding: 15px;
+  }
+
+  .appointments-table th,
+  .appointments-table td {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .appointments-table th,
+  .appointments-table td {
+    padding: 4px;
+    font-size: 0.9rem;
+  }
+}

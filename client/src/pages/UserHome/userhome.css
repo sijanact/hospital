@@ -1,0 +1,56 @@
+.detailimage {
+  height: 250px;
+  width: 250px;
+}
+
+.hom {
+  display: flex;
+}
+
+.hosdetails {
+  display: flex;
+  gap: 100px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hos {
+  padding: 50px;
+  background-color: rgb(196, 231, 245);
+  width: 80%;
+}
+
+.det {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.det p {
+  font-size: larger;
+}
+@media (max-width: 768px) {
+  .hos {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .hosdetails {
+    gap: 20px;
+  }
+
+  .det p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .detailimage {
+    height: 150px;
+  }
+
+  .det p {
+    font-size: 0.9rem;
+  }
+}

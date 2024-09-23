@@ -1,0 +1,44 @@
+.departmain {
+  display: flex;
+}
+
+.dimage {
+  height: 250px;
+  width: 250px;
+}
+.carddetails {
+  padding: 50px;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  justify-content: center;
+  background-color: rgb(196, 231, 245);
+}
+.departcard {
+  font-size: larger;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .carddetails {
+    padding: 15px;
+    gap: 30px;
+  }
+
+  .departcard {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dimage {
+    height: 150px;
+  }
+
+  .departcard {
+    font-size: 0.9rem;
+  }
+}

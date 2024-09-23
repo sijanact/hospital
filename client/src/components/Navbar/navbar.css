@@ -1,0 +1,24 @@
+.nav {
+  height: 150px;
+  background-color: rgb(196, 231, 245);
+  display: flex;
+}
+.logo {
+  width: 20%;
+}
+
+.logo img {
+  height: 150px;
+  width: 150px;
+}
+
+.home {
+  width: 80%;
+  display: flex;
+  gap: 50px;
+  align-items: start;
+  justify-content: end;
+  padding: 40px;
+  color: rgba(4, 26, 224, 0.859);
+  font-size: large;
+}

@@ -8,9 +8,7 @@ const DocHome = () => {
     <>
       <div className="doc-home">
         <Sidebar />
-        <div className="contents">
-          <h1>Dashboard</h1>
-        </div>
+        <div className="hombg"></div>
       </div>
     </>
   );

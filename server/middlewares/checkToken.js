@@ -12,7 +12,7 @@ const checkToken = roles => {
 
       next();
     } catch (e) {
-      res.status(403).json({ message: 'You are not authorized' });
+      res.status(403).json({ message: 'You are not authorized error' });
     }
   };
 };

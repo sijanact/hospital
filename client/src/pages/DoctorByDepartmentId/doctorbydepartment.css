@@ -1,0 +1,50 @@
+.detailsdoc {
+  display: flex;
+  flex-direction: column;
+  /* font-size: larger; */
+
+  align-items: center;
+  gap: 10px;
+}
+
+.docthos {
+  display: flex;
+}
+
+.doctors {
+  padding: 50px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 100px;
+  background-color: rgb(196, 231, 245);
+}
+
+.docimge {
+  height: 250px;
+  width: 250px;
+}
+.detailsdoc {
+  font-size: larger;
+}
+@media (max-width: 768px) {
+  .doctors {
+    gap: 30px;
+    padding: 15px;
+  }
+
+  .detailsdoc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .docimge {
+    height: 150px;
+  }
+
+  .detailsdoc {
+    font-size: 0.9rem;
+  }
+}

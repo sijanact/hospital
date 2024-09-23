@@ -19,8 +19,9 @@ const UserLogin = () => {
 
   const onLogin = async () => {
     try {
-      const response = await axios.post('user/login', login);
-
+      const response = await axios.post(`user/login`, login);
+      console.log(response.data);
+      localStorage.setItem('ID', response.data.id);
       navigate('/user/home');
     } catch (e) {
       toast.error('Email or Password incorrect');
@@ -32,32 +33,34 @@ const UserLogin = () => {
   };
 
   const onForgot = () => {
-    navigate('/forgot');
+    navigate('/user/forgot');
   };
 
   return (
-    <div className="user-login-form">
-      <ToastContainer />
-      <h1>User Login</h1>
-      <label>Email</label>
-      <Input onChange={e => onChange(e, 'email')} />
-      <label>Password</label>
-      <Input type="password" onChange={e => onChange(e, 'password')} />
-      <p className="p1" onClick={onForgot}>
-        Forgot password?
-      </p>
-      <br />
-      <div className="login">
-        <Button className="btn" onClick={onLogin}>
-          Login
-        </Button>
-
-        <p>
-          Don't have an account?{' '}
-          <span onClick={onSignup} className="signup">
-            Signup
-          </span>
+    <div className="main">
+      <div className="user-login-form">
+        <ToastContainer />
+        <h1>User Login</h1>
+        <label>Email</label>
+        <Input onChange={e => onChange(e, 'email')} />
+        <label>Password</label>
+        <Input type="password" onChange={e => onChange(e, 'password')} />
+        <p className="p1" onClick={onForgot}>
+          Forgot password?
         </p>
+        <br />
+        <div className="login">
+          <Button className="btn" onClick={onLogin}>
+            Login
+          </Button>
+
+          <p>
+            Don't have an account?{' '}
+            <span onClick={onSignup} className="signup">
+              Signup
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );
