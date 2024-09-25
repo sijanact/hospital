@@ -157,7 +157,7 @@ module.exports.forgotPassword = async (req, res) => {
     from: 'learnmern27389@gmail.com',
     to: email,
     subject: 'PASSWORD RESET EMAIL',
-    text: `Please reset your password using the link http://localhost:${process.env.PORT}/doctor/reset/${resetToken} `,
+    text: `Please reset your password using the link http://localhost:5173/doctor/reset/${resetToken} `,
   };
 
   transporter.sendMail(mailOptions, error => {

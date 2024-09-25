@@ -20,13 +20,13 @@ const DocForgot = () => {
   const onContinue = async () => {
     try {
       const response = await axios.post('doctor/forgot-password', forgot);
-      console.log(response);
+      // console.log(response);
 
       localStorage.setItem('token', response.data.resetToken);
 
-      console.log(response.data.resetToken);
-      toast('Mail sent');
-      navigate(`/doctor/reset/${response.data.resetToken}`);
+      // console.log(response.data.resetToken);
+      toast.error('Check mail');
+      // navigate(`/doctor/reset/${response.data.resetToken}`);
     } catch (e) {
       console.log(e);
       toast.error('Email or Password incorrect');

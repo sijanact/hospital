@@ -20,13 +20,14 @@ const ForgotPass = () => {
   const onContinue = async () => {
     try {
       const response = await axios.post('user/forgot-password', forgot);
-      console.log(response);
+      // console.log(response);
 
       localStorage.setItem('token', response.data.resetToken);
 
-      console.log(response.data.resetToken);
+      // console.log(response.data.resetToken);
+      toast.error('Check mail');
 
-      navigate(`/user/reset/${response.data.resetToken}`);
+      // navigate(`/user/reset/${response.data.resetToken}`);
     } catch (e) {
       console.log(e);
       toast.error('Email or Password incorrect');
